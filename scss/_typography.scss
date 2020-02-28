@@ -1,0 +1,20 @@
+html{
+  font-family: $font-family;
+  font-size: $small-font-size;
+
+  @media screen and (min-width: map-get($breakpoints, md )){
+    font-size: $base-font-size;
+  }
+}
+
+h1{
+  font-size: 2rem;
+}
+
+h2{
+  font-size: 1.8rem;
+}
+
+h3{
+  font-size: 1.6rem;
+}

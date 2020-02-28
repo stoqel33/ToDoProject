@@ -1,0 +1,16 @@
+$base-font-size: 18px;
+$small-font-size: 16px;
+
+$font-family:'Montserrat', sans-serif ;
+
+$main-spacing: 20px;
+$max-width: 1000px;
+
+$bg-color: linear-gradient(135deg, #ffd1b4, #f7ae81) ;
+$font-color: #8a4e29;
+
+$breakpoints: (
+  sm: 500px,
+  md: 800px,
+  lg: 1000px
+);
