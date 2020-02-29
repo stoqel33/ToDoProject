@@ -1,5 +1,11 @@
-body{
+.wrapper{
   min-height: 100vh;
   background: $bg-color;
   color: $font-color;
 }
+
+.container{
+  max-width: $max-width;
+  margin: 0 auto;
+}
+

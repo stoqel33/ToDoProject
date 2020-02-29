@@ -1,0 +1,81 @@
+.todo{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+
+  &--title{
+    align-self: center;
+    margin: $main-spacing*2 0;
+  }
+
+  &--head{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: $main-spacing;
+
+    &-date{
+      align-self: center;
+    }
+  }
+
+  &--tasks{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $main-spacing;
+
+    &--task{
+      display: flex;
+      justify-content: space-around;
+      margin: $main-spacing/2 0 ;
+      height: auto;
+
+      i{
+        margin: 0 $main-spacing;
+      }
+
+      .text{
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &--info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: $main-spacing;
+
+    &-counter{
+      font-weight: 300;
+    }
+  }
+
+  &--add{
+    margin: $main-spacing;
+    display: flex;
+    justify-content: center;
+
+    i{
+      flex-grow: 1;
+      font-size: 2rem;
+      align-self: center;
+      text-align: center;
+    }
+
+    input{
+      flex-grow: 2;
+      font-size: 1rem;
+      font-weight: 300;
+      padding: $main-spacing/2;
+      color: $font-color;
+      background-color: #f7ae81;
+    }
+  }
+}
+
+.splitter{
+  width: 100%;
+  margin-top: $main-spacing;
+  height: 1px;
+  background-color: #000;
+}

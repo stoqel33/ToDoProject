@@ -54,12 +54,12 @@ table {
 
 html {
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media screen and (min-width: 800px) {
   html {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -75,9 +75,134 @@ h3 {
   font-size: 1.6rem;
 }
 
-body {
+.wrapper {
   min-height: 100vh;
   background: linear-gradient(135deg, #ffd1b4, #f7ae81);
   color: #8a4e29;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 100%;
+}
+
+.todo--title {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 40px 0;
+}
+
+.todo--head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.todo--head-date {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.todo--tasks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.todo--tasks--task {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 10px 0;
+  height: auto;
+}
+
+.todo--tasks--task i {
+  margin: 0 20px;
+}
+
+.todo--tasks--task .text {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.todo--info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px;
+}
+
+.todo--info-counter {
+  font-weight: 300;
+}
+
+.todo--add {
+  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.todo--add i {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  font-size: 2rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.todo--add input {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  font-size: 1rem;
+  font-weight: 300;
+  padding: 10px;
+  color: #8a4e29;
+  background-color: #f7ae81;
+}
+
+.splitter {
+  width: 100%;
+  margin-top: 20px;
+  height: 1px;
+  background-color: #000;
 }
 /*# sourceMappingURL=style.css.map */
