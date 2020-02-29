@@ -16,27 +16,14 @@
 
     <div class="container">
 
-      <div class="todo">
+      <div class="todo" id="todo">
 
         <h1 class="todo--title">ToDoLista</h1>
 
-        <div class="todo--head">
+        <div class="todo--head" id="head"></div>
 
-          <h2 class="todo--head-day">Monday</h2>
-          <span class="todo--head-date">28.02.20</span>
+        <ul class="todo--tasks" id="list"></ul>
 
-        </div>
-
-        <ul class="todo--tasks">
-
-          <li class="todo--tasks--task">
-            <i class="far fa-circle"></i>
-            <p class="text">jakis tam teks</p>
-            <span class="info-date">all day</span>
-            <i class="far fa-trash-alt"></i>
-          </li>
-
-        </ul>
         <div class="todo--info">
 
           <div class="todo--info-counter">liczba <span id="counter">6</span> </div>
@@ -46,10 +33,10 @@
 
         <div class="splitter"></div>
 
-        <div class="todo--add">
-          <i class="fas fa-plus-circle"></i>
-          <input type="text" placeholder="add new task">
 
+        <div class="todo--add">
+          <i class="fas fa-plus-circle" id="btn-add"></i>
+          <input type="text" placeholder="Add new task" id="input-text">
         </div>
       </div>
 

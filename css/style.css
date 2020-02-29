@@ -117,6 +117,7 @@ h3 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  font-weight: 300;
 }
 
 .todo--tasks {
@@ -142,6 +143,7 @@ h3 {
 
 .todo--tasks--task i {
   margin: 0 20px;
+  cursor: pointer;
 }
 
 .todo--tasks--task .text {
@@ -167,6 +169,10 @@ h3 {
   font-weight: 300;
 }
 
+.todo--info i {
+  cursor: pointer;
+}
+
 .todo--add {
   margin: 20px;
   display: -webkit-box;
@@ -186,6 +192,7 @@ h3 {
       -ms-grid-row-align: center;
       align-self: center;
   text-align: center;
+  cursor: pointer;
 }
 
 .todo--add input {
@@ -197,6 +204,7 @@ h3 {
   padding: 10px;
   color: #8a4e29;
   background-color: #f7ae81;
+  cursor: pointer;
 }
 
 .splitter {
