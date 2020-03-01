@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   toDo.addEventListener('click', function (e) {
+    e.preventDefault();
     if (e.target.closest('#btnDel') !== null) {
       e.target.closest('#item').remove();
       counterTasks();
@@ -93,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   toDo.addEventListener('click', function (e) {
+    e.preventDefault();
     if (e.target.closest('#check') !== null) {
       if (e.target.classList.contains('fa-circle')) {
         e.target.classList.remove('fa-circle');
