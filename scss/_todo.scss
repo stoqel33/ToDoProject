@@ -31,12 +31,15 @@
       height: auto;
 
       i{
+        font-size: 1.5rem;
         margin: 0 $main-spacing;
         cursor: pointer;
       }
 
       .text{
+        align-self: center;
         max-width: 70%;
+        font-size: 1.2rem;
         overflow: hidden;
         flex-grow: 1;
       }
@@ -54,6 +57,7 @@
     }
 
     i{
+      font-size: 1.3rem;
       cursor: pointer;
     }
   }
