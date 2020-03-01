@@ -81,7 +81,9 @@
       font-weight: 300;
       padding: $main-spacing/2;
       color: $font-color;
-      background-color: #f7ae81;
+      background-color: rgba(0,0,0,0.1);
+      border: none;
+      box-shadow: 4px 6px 9px -2px black;
       cursor: pointer;
     }
   }
