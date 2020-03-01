@@ -36,6 +36,8 @@
       }
 
       .text{
+        max-width: 70%;
+        overflow: hidden;
         flex-grow: 1;
       }
     }
@@ -86,4 +88,16 @@
   margin-top: $main-spacing;
   height: 1px;
   background-color: #000;
+}
+
+.fa-check-circle{
+  color: green;
+}
+
+.fa-trash-alt{
+  color: darkred;
+}
+
+.strike{
+  text-decoration: line-through red;
 }
