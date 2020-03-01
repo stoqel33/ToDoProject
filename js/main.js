@@ -1,11 +1,14 @@
-let todoList = document.querySelector('#list');
+let todoList = null;
 let todoItem = null;
 let btnAdd = null;
 let inputText = null;
 let currentDay = null;
 let currentData = null;
 let toDo = null;
-const head = document.querySelector('#head');
+let head = null;
+let refreshBtn = null;
+let counter = 0;
+let amountTask = null;
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -34,6 +37,7 @@ function addTask(input) {
 
   const check = document.createElement('i');
   check.classList.add('far', 'fa-circle');
+  check.setAttribute('id', 'check');
 
   const text = document.createElement('p');
   text.classList.add('text');
@@ -48,14 +52,30 @@ function addTask(input) {
   item.appendChild(del);
   todoList.appendChild(item);
 
+  counterTasks();
+
+}
+
+function refresh() {
+  todoList.innerHTML = '';
+
+  counterTasks();
+}
+
+function counterTasks() {
+  amountTask.innerHTML = todoList.childElementCount
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  const todoList = document.querySelector('#list');
-  const todoItem = document.querySelector('#item');
-  const btnAdd = document.querySelector('#btn-add');
-  const inputText = document.querySelector('#input-text');
-  const toDo = document.querySelector('#todo');
+  todoList = document.querySelector('#list');
+  todoItem = document.querySelector('#item');
+  btnAdd = document.querySelector('#btn-add');
+  inputText = document.querySelector('#input-text');
+  toDo = document.querySelector('#todo');
+  amountTask = document.querySelector('#counter');
+  refreshBtn = document.querySelector('#refresh');
+  head = document.querySelector('#head');
+
 
 
   btnAdd.addEventListener('click', function () {
@@ -68,8 +88,26 @@ document.addEventListener('DOMContentLoaded', function () {
   toDo.addEventListener('click', function (e) {
     if (e.target.closest('#btnDel') !== null) {
       e.target.closest('#item').remove();
+      counterTasks();
     }
   })
 
+  toDo.addEventListener('click', function (e) {
+    if (e.target.closest('#check') !== null) {
+      if (e.target.classList.contains('fa-circle')) {
+        e.target.classList.remove('fa-circle');
+        e.target.classList.add('fa-check-circle');
+
+      } else if (e.target.classList.contains('fa-check-circle')) {
+        e.target.classList.remove('fa-check-circle');
+        e.target.classList.add('fa-circle');
+      }
+      e.target.nextSibling.classList.toggle('strike');
+    }
+  })
+
+  refreshBtn.addEventListener('click', refresh);
+
   addCurrnetDay();
 })
+
