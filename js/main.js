@@ -40,8 +40,9 @@ function localStorageTaskAdd() {
   localStorage.setItem('taskArray', str);
 }
 
-function taskObj(txt) {
+function taskObj(txt, state) {
   this.txt = txt;
+  this.state = state;
 }
 
 function removeTask(task) {
@@ -71,11 +72,15 @@ function getLocalStorage() {
     item.setAttribute('id', 'item');
 
     const check = document.createElement('i');
-    check.classList.add('far', 'fa-circle');
+    check.classList.add('far', el.state);
     check.setAttribute('id', 'check');
+
 
     const text = document.createElement('p');
     text.classList.add('text');
+    if (el.state === 'fa-check-circle') {
+      text.classList.add('strike');
+    }
     text.textContent = el.txt;
 
     const del = document.createElement('i');
@@ -98,6 +103,7 @@ function addTask(input) {
     const check = document.createElement('i');
     check.classList.add('far', 'fa-circle');
     check.setAttribute('id', 'check');
+    const state = check.className = 'fa-circle';
 
     const text = document.createElement('p');
     text.classList.add('text');
@@ -112,7 +118,7 @@ function addTask(input) {
     item.appendChild(del);
     todoList.appendChild(item);
 
-    const t = new taskObj(input);
+    const t = new taskObj(input, state);
     tasksArray.push(t);
 
     counterTasks();
@@ -130,6 +136,26 @@ function refresh() {
 
 function counterTasks() {
   amountTask.innerHTML = tasksArray.length;
+}
+
+function taskChangeState(task) {
+  const taskText = task.parentNode.childNodes[1].textContent;
+
+  let index = 0;
+
+  tasksArray.forEach(el => {
+    if (el.txt === taskText) {
+      index = tasksArray.indexOf(el);
+    }
+  });
+
+  if (tasksArray[index].state === 'fa-circle') {
+    tasksArray[index].state = 'fa-check-circle';
+  } else {
+    tasksArray[index].state = 'fa-circle';
+  }
+
+  localStorageTaskAdd()
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -165,10 +191,13 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.target.classList.contains('fa-circle')) {
         e.target.classList.remove('fa-circle');
         e.target.classList.add('fa-check-circle');
+        taskChangeState(e.target);
+
 
       } else if (e.target.classList.contains('fa-check-circle')) {
         e.target.classList.remove('fa-check-circle');
         e.target.classList.add('fa-circle');
+        taskChangeState(e.target);
       }
       e.target.nextSibling.classList.toggle('strike');
     }
