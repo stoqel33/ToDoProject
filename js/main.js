@@ -1,3 +1,5 @@
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 let todoList = null;
 let todoItem = null;
 let btnAdd = null;
@@ -75,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function () {
   amountTask = document.querySelector('#counter');
   refreshBtn = document.querySelector('#refresh');
   head = document.querySelector('#head');
+
+
 
 
 
