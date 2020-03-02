@@ -1,5 +1,6 @@
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 let todoList = null;
 let todoItem = null;
 let btnAdd = null;
@@ -33,29 +34,30 @@ function addCurrnetDay() {
 }
 
 function addTask(input) {
-  const item = document.createElement('li');
-  item.classList.add('todo--tasks--task');
-  item.setAttribute('id', 'item');
+  if (input.trim().length > 0) {
+    const item = document.createElement('li');
+    item.classList.add('todo--tasks--task');
+    item.setAttribute('id', 'item');
 
-  const check = document.createElement('i');
-  check.classList.add('far', 'fa-circle');
-  check.setAttribute('id', 'check');
+    const check = document.createElement('i');
+    check.classList.add('far', 'fa-circle');
+    check.setAttribute('id', 'check');
 
-  const text = document.createElement('p');
-  text.classList.add('text');
-  text.textContent = input;
+    const text = document.createElement('p');
+    text.classList.add('text');
+    text.textContent = input;
 
-  const del = document.createElement('i');
-  del.classList.add('far', 'fa-trash-alt');
-  del.setAttribute('id', 'btnDel');
+    const del = document.createElement('i');
+    del.classList.add('far', 'fa-trash-alt');
+    del.setAttribute('id', 'btnDel');
 
-  item.appendChild(check);
-  item.appendChild(text);
-  item.appendChild(del);
-  todoList.appendChild(item);
+    item.appendChild(check);
+    item.appendChild(text);
+    item.appendChild(del);
+    todoList.appendChild(item);
 
-  counterTasks();
-
+    counterTasks();
+  }
 }
 
 function refresh() {
@@ -77,10 +79,6 @@ document.addEventListener('DOMContentLoaded', function () {
   amountTask = document.querySelector('#counter');
   refreshBtn = document.querySelector('#refresh');
   head = document.querySelector('#head');
-
-
-
-
 
   btnAdd.addEventListener('click', function () {
     if (inputText.value !== '') {
