@@ -103,7 +103,7 @@ function addTask(input) {
     const check = document.createElement('i');
     check.classList.add('far', 'fa-circle');
     check.setAttribute('id', 'check');
-    const state = check.className = 'fa-circle';
+    const state = 'fa-circle';
 
     const text = document.createElement('p');
     text.classList.add('text');
