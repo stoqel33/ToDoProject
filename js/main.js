@@ -203,6 +203,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   })
 
+  document.querySelector('#form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (inputText.value !== '') {
+      addTask(inputText.value);
+      inputText.value = '';
+    }
+  })
+
   refreshBtn.addEventListener('click', refresh);
 
   getLocalStorage();
