@@ -15,6 +15,8 @@ let amountTask = null;
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
+let tasksArray = [];
+
 
 function addCurrnetDay() {
   const dayName = document.createElement('h2');
@@ -31,6 +33,61 @@ function addCurrnetDay() {
 
   head.appendChild(dayName);
   head.appendChild(day)
+}
+
+function localStorageTaskAdd() {
+  const str = JSON.stringify(tasksArray);
+  localStorage.setItem('taskArray', str);
+}
+
+function taskObj(txt) {
+  this.txt = txt;
+}
+
+function removeTask(task) {
+  taskText = task.childNodes[1].textContent;
+  let index = 0;
+
+  tasksArray.forEach(el => {
+    if (el.txt === taskText) {
+      index = tasksArray.indexOf(el);
+    }
+  });
+
+  tasksArray.splice(index, 1)
+
+  localStorageTaskAdd();
+}
+
+function getLocalStorage() {
+  const str = localStorage.getItem('taskArray');
+  tasksArray = JSON.parse(str);
+  if (!tasksArray) {
+    tasksArray = [];
+  }
+
+  tasksArray.forEach(el => {
+    const item = document.createElement('li');
+    item.classList.add('todo--tasks--task');
+    item.setAttribute('id', 'item');
+
+    const check = document.createElement('i');
+    check.classList.add('far', 'fa-circle');
+    check.setAttribute('id', 'check');
+
+    const text = document.createElement('p');
+    text.classList.add('text');
+    text.textContent = el.txt;
+
+    const del = document.createElement('i');
+    del.classList.add('far', 'fa-trash-alt');
+    del.setAttribute('id', 'btnDel');
+
+    item.appendChild(check);
+    item.appendChild(text);
+    item.appendChild(del);
+    todoList.appendChild(item);
+  });
 }
 
 function addTask(input) {
@@ -56,18 +113,24 @@ function addTask(input) {
     item.appendChild(del);
     todoList.appendChild(item);
 
+    const t = new taskObj(input);
+    tasksArray.push(t);
+
     counterTasks();
+    localStorageTaskAdd();
   }
 }
 
 function refresh() {
+  tasksArray = [];
+  localStorage.clear();
   todoList.innerHTML = '';
 
   counterTasks();
 }
 
 function counterTasks() {
-  amountTask.innerHTML = todoList.childElementCount
+  amountTask.innerHTML = tasksArray.length;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -89,8 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toDo.addEventListener('click', function (e) {
     e.preventDefault();
-    if (e.target.closest('#btnDel') !== null) {
+    if (e.target.closest('#item') !== null) {
       e.target.closest('#item').remove();
+
+      removeTask(e.target.parentNode);
       counterTasks();
     }
   })
@@ -112,6 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   refreshBtn.addEventListener('click', refresh);
 
+  getLocalStorage();
   addCurrnetDay();
+  counterTasks();
 })
 
