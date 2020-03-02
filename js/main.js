@@ -55,7 +55,6 @@ function removeTask(task) {
   });
 
   tasksArray.splice(index, 1)
-
   localStorageTaskAdd();
 }
 
@@ -152,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   toDo.addEventListener('click', function (e) {
     e.preventDefault();
-    if (e.target.closest('#item') !== null) {
+    if (e.target.closest('#btnDel') !== null) {
       e.target.closest('#item').remove();
 
       removeTask(e.target.parentNode);
