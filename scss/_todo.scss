@@ -67,12 +67,21 @@
     display: flex;
     justify-content: center;
 
+    @media screen and (min-width: map-get($breakpoints, md )){
+      justify-content: center;
+    }
+
     i{
       flex-grow: 1;
       font-size: 2rem;
       align-self: center;
       text-align: center;
       cursor: pointer;
+
+      @media screen and (min-width: map-get($breakpoints, md )){
+        flex-grow: 0;
+        margin-right: $main-spacing*3;
+      }
     }
 
     input{
@@ -85,6 +94,15 @@
       border: none;
       box-shadow: 4px 6px 9px -2px black;
       cursor: pointer;
+
+      &:focus{
+        border: 1px solid wheat;
+      }
+
+      @media screen and (min-width: map-get($breakpoints, md )){
+        max-width: 400px;
+        flex-grow: 1;
+      }
     }
   }
 }
